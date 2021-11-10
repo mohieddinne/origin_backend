@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Fichier pdf généré par Globe Technologie</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+
+        @page {
+            size: auto;
+            margin: 0.75cm !important;
+        }
+
+        @media print {
+
+            .widget,
+            img {
+                display: block;
+                page-break-inside: avoid;
+                break-inside: avoid;
+            }
+
+            .page {
+                page-break-after: auto;
+                padding-bottom: 30px;
+            }
+
+            a::after {
+                content: "TEST";
+            }
+        }
+
+        .clearfix:after {
+            content: "";
+            display: table;
+            clear: both;
+        }
+
+        .clearfix {
+            margin: .5cm 0;
+        }
+
+        a {
+            color: rgb(0, 135, 195);
+            text-decoration: none;
+        }
+
+        body {
+            background: rgb(255, 255, 255);
+            font-family: 'Source Sans Pro', sans-serif;
+            font-size: 14px;
+        }
+
+        header {
+            padding: 10px 0;
+            margin-bottom: 20px;
+            border-bottom: 1px solid rgb(170, 170, 170);
+        }
+
+        #logo {
+            float: left;
+            margin-top: 8px;
+        }
+
+        #logo img {
+            height: 50px;
+        }
+
+        #company {
+            float: right;
+            text-align: right;
+        }
+        footer {
+            color: rgb(119, 119, 119);
+            width: 100%;
+            height: 140px;
+            position: fixed;
+            bottom: 0;
+            border-top: 1px solid rgb(170, 170, 170);
+            padding: 8px 0;
+            text-align: center;
+            font-size: small;
+        }
+
+        .line {
+            border: 1px solid rgb(170, 170, 170);
+            width: '100%';
+        }
+
+        .title {
+            color: gray;
+            font-size: small;
+            font-family: 'Courier New', Courier, monospace;
+            font-weight: 600;
+        }
+
+        .content {
+            color: black;
+            font-size: medium;
+            align-self: flex-start;
+
+        }
+
+        .invoice {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            background-color: #a9d2fa
+        }
+
+        .client {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+        }
+
+        .row {
+            display: inline-flex;
+            width: 100%;
+            justify-content: space-between;
+            margin-bottom: 5px;
+        }
+
+        .row-1-2 {
+            display: inline-flex;
+            width: 80%;
+            justify-content: space-between
+        }
+    </style>
+</head>
+
+<body>
+    <header class="clearfix">
+        <div id="logo">
+            <img src="{{logo}}">
+        </div>
+        <div id="company">
+            <h2 class="name">Origin, Enquêtes technico-légales inc.</h2>
+            <div>1445, rue Notre-Dame, L’Ancienne-Lorette (Québec) G2E 3A8</div>
+            <div>Tel.: 418 614-3344 | info@origin.expert
+            </div>
+        </div>
+
+    </header>
+    {{!-- <div class="page"> --}}
+        {{!-- <div class="clearfix left-border"> --}}
+            <div class="invoice">
+                <div>
+                    <span class="title">Facture</span>
+                    <span class="content"># {{ invoiceId }}</span>
+                </div>
+                <div>
+                    <span class="title">Date de facturation:</span>
+                    <span class="content"> 09/09/2021</span>
+                </div>
+
+            </div>
+            <strong>Client</strong>
+            <div>
+                <div class="row-1-2">
+                    <span class="title">Numero client </span>
+                    <span class="content"># {{ clientId }}</span>
+                </div>
+                <div class="row-1-2">
+                    <span class="title">Nom du client : </span>
+                    <span class="content">{{ clientName }} </span>
+                </div>
+            </div>
+            <strong>Dossier</strong>
+            <div>
+                <div class="row-1-2">
+                    <span class="title">Numero du dossier</span>
+                    <span class="content"># {{ foderId }}</span>
+                </div>
+                <div class="row-1-2">
+                    <span class="title">Référence : </span>
+                    <span class="content">{{ refrende }}</span>
+                </div>
+                <div class="row-1-2">
+                    <span class="title">V/Dossier : </span>
+                    <span class="content">{{ version }}</span>
+                </div>
+                <div class="row-1-2">
+                    <span class="title">Adresse de perte : </span>
+                    <span class="content">{{ adrlosses }}</span>
+                </div>
+            </div>
+            <h2>Détaille de la facture</h2>
+            <div>
+                <div class="row">
+                    <span class="title">Honoraires (ci-joint le détail des honoraires)</span>
+                    <span class="content">{{fees}}</span>
+                </div>
+                <div class="row">
+                    <span class="title">Frais administratifs : </span>
+                    <span class="content">{{administrativeCosts}}</span>
+                </div>
+                <div class="row">
+                    <span class="title">Débours (ci-joint le détail des débours): </span>
+                    <span class="content">{{totalAmount}}</span>
+                </div>
+                <div class="row">
+                    <span class="title">Total partiel : </span>
+                    <span class="content">{{totalPart}}</span>
+                </div>
+                <div class="row">
+                    <span class="title">TPS (no 832946529) : </span>
+                    <span class="content"{{GST}}</span>
+                </div>
+                <div class="row">
+                    <span class="title">TVQ (no 1212562137) : </span>
+                    <span class="content">{{TVQ}}</span>
+                </div>
+                <div class="row">
+                    <span class="title">Total de la facture : </span>
+                    <span class="content">{{totalAmount}}</span>
+                </div>
+                <div class="row">
+                    <span class="title">Votre part : </span>
+                    <span class="content">{{part}}</span>
+                </div>
+                <div class="row">
+                    <span class="title">MONTANT À PAYER : </span>
+                    <span class="content"><strong>5{{totalAmount}}</strong> </span>
+                </div>
+            </div>
+            <div style="margin-left:25%;margin-top:5px">
+                <img src="{{notice}}">
+
+            </div>
+            <footer>
+                Échéance : 30 jours à compter de la date de facturation.<br />
+                Des frais de retard de 1,5 % par mois seront ajoutés à tout compte en souffrance.<br />
+                Information bancaire pour procéder au paiement de votre facture<br />
+                49131 ▪ 004 ▪ 5015312 / SWIFT : TDOMCATTTOR / Nom de l'institution bancaire : TD Canada Trust<br />
+                NIF : 832946529<br />
+                <span style="color: red;">Adresse courriel pour l'envoi de votre bordereau de paiement :
+                    comptabilite@origin.expert</span><br />
+                <address>
+                    445, rue Notre-Dame · L’Ancienne-Lorette (Québec) · G2E 3A8
+                    Téléphone : 418 614-3344 · Sans frais : 1 888 380-FEUX (3389) · www.origin.expert
+                </address>
+            </footer>
+</body>
+
+</html>

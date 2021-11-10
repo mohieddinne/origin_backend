@@ -1,0 +1,5 @@
+// Query for upgrade
+module.exports.up = "";
+
+// Query for down grade
+module.exports.down = "";
